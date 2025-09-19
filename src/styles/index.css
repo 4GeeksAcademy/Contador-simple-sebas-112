@@ -1,11 +1,123 @@
-/* 
+:root{
+  --bg:#0f172a;           /* fondo página */
+  --panel:#101826;        /* paneles */
+  --text:#e5e7eb;         /* texto principal */
+  --muted:#94a3b8;        /* texto secundario */
+  --primary:#22d3ee;      /* acento */
+  --ring: rgba(34,211,238,.35);
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+html, body, #root{ min-height: 100%; }
+body{
+  background:
+    radial-gradient(1200px 800px at 10% -20%, #1f2937 0%, transparent 60%),
+    radial-gradient(1200px 800px at 120% 120%, #1f2937 0%, transparent 60%),
+    var(--bg);
+  color: var(--text);
+}
 
-*/
+/* contenedor principal del componente */
+.container{
+  max-width: 760px;
+}
+
+/* caja del display */
+.timer-box{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.35);
+}
+
+/* formato del número principal */
+.display-3{
+  letter-spacing: .5px;
+}
+
+/* barra de progreso */
+.progress{
+  height: 12px;
+  background-color: rgba(255,255,255,.08);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.progress-bar{
+  transition: width .4s ease;
+}
+
+/* botones */
+.btn{
+  border-radius: 12px;
+  font-weight: 700;
+}
+.btn-success, .btn-warning, .btn-danger{
+  border: none;
+}
+.btn-success{
+  background: linear-gradient(180deg, #34d399, #10b981);
+  color: #052016;
+}
+.btn-warning{
+  background: linear-gradient(180deg, #fbbf24, #f59e0b);
+  color: #231a05;
+}
+.btn-danger{
+  background: linear-gradient(180deg, #ef4444, #dc2626);
+}
+.btn-outline-light{
+  border-color: rgba(255,255,255,.35)!important;
+  color: var(--text)!important;
+}
+.btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 8px var(--ring) !important;
+}
+
+/* inputs */
+.form-control{
+  background-color: var(--panel);
+  border: 1px solid rgba(255,255,255,.12);
+  color: var(--text);
+  border-radius: 10px;
+}
+.input-group-text{
+  background-color: var(--panel);
+  border: 1px solid rgba(255,255,255,.12);
+  color: var(--muted);
+}
+.form-text{ color: var(--muted); }
+
+/* badges/labels */
+.badge.bg-secondary{
+  background: rgba(255,255,255,.16)!important;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+/* alert (toast simple) */
+.alert{
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 16px 40px rgba(0,0,0,.28);
+}
+
+/* atajos visuales opcionales */
+.text-secondary{ color: var(--muted)!important; }
+
+/* kbd estilo */
+kbd{
+  background:#0b1220; color:#e5e7eb;
+  border:1px solid rgba(255,255,255,.25);
+  padding:2px 6px; border-radius:6px;
+}
+
+/* iguala la altura de los labels en desktop para alinear los inputs */
+@media (min-width: 768px){
+  .form-label.equal {
+    min-height: 48px;           /* ajusta si tu label es más alto */
+    display: flex;
+    align-items: flex-end;       /* alinea el texto al borde inferior */
+    margin-bottom: .5rem;        /* mismo espacio debajo en ambos */
+  }
+}
